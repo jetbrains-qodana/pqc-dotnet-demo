@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>PqcDotnetDemo</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!--
+          This project deliberately calls obsolete, platform-specific and experimental cryptography
+          APIs: that is the material the inventory scan is meant to find. Silencing the compiler
+          here keeps the build clean so the analyzer's findings are the only output worth reading.
+
+          CS0618, SYSLIB0021/0022/0023/0027/0031/0033/0041/0045/0060
+                                              - obsolete crypto types, derivations and formatters
+          SYSLIB0014                          - ServicePointManager, kept for the legacy TLS policy
+          SYSLIB0039                          - TLS 1.0 and 1.1 as SslStream arguments
+          SYSLIB0053                          - the single-argument AesGcm constructor
+          SYSLIB5006                          - post-quantum APIs still marked experimental
+          CA1416                              - Windows-only CNG types called from portable code
+        -->
+        <NoWarn>
+            $(NoWarn);CS0618;
+            SYSLIB0014;SYSLIB0021;SYSLIB0022;SYSLIB0023;SYSLIB0027;SYSLIB0031;SYSLIB0033;
+            SYSLIB0039;SYSLIB0041;SYSLIB0045;SYSLIB0053;SYSLIB0060;SYSLIB5006;CA1416
+        </NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- ContentInfo, EnvelopedCms, AlgorithmIdentifier and Pkcs8PrivateKeyInfo. -->
+        <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.0"/>
+    </ItemGroup>
+
+</Project>

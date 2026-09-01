@@ -1,0 +1,13 @@
+version: "1.0"
+profile:
+  name: qodana.recommended
+  inspections:
+    # Choose the PQC inspection level below. Each level is cumulative and includes
+    # every level below it:
+    #   PqcMinLevel1 – Informational recommendations for future PQC migration.
+    #   PqcMinLevel2 – Recommend beginning migration planning. Includes Level 1.
+    #   PqcMinLevel3 – Recommend active migration to PQC. Includes Levels 1–2.
+    #   PqcMinLevel4 – Flag cryptography nearing the end of its recommended use. Includes Levels 1–3.
+    #   PqcMinLevel5 – Flag cryptography that should no longer be used. Includes Levels 1–4.
+    - group: PqcMinLevel1
+      enabled: true
