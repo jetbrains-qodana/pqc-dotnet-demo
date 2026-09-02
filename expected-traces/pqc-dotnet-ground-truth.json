@@ -1,0 +1,636 @@
+{
+  "benchmark": "pqc-dotnet-demo",
+  "version": "1.0",
+  "_note": "Expected issues were snapshotted from a Qodana scan (QDPOLY 263.4338) at commit f5e26000dbd8d83ce4ba88d4bdf56c6726a3300f, one expected sink per reported finding (its primary location).",
+  "expectedIssues": {
+    "CsharpUsingCryptographyCertificateKeyECDH": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
+        "lines": [
+          130
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCertificateKeyECDSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
+        "lines": [
+          120
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCertificateKeyRSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          121,
+          129
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyChaCha20": [
+      {
+        "fileId": "PqcDotnetDemo/Modern/AesContentCipher.cs",
+        "lines": [
+          49
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyClassDSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          51
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyClassECDH": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
+        "lines": [
+          23,
+          30
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyClassECDSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
+        "lines": [
+          37,
+          44
+        ]
+      },
+      {
+        "fileId": "PqcDotnetDemo/Modern/DigestAndMacServices.cs",
+        "lines": [
+          150
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyClassMD5": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          20
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyClassRSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          23
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyClassSHA1": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          28
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyClassSHAKE128": [
+      {
+        "fileId": "PqcDotnetDemo/Modern/DigestAndMacServices.cs",
+        "lines": [
+          53
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyClassTripleDES": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          32,
+          36
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCngAlgorithmECDH": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
+        "lines": [
+          58
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCngAlgorithmECDSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
+        "lines": [
+          51
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCngAlgorithmRSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          44
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCompositeMLDsaAlgorithmMLDSA44withECDSA": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/HybridCompositeSigner.cs",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCompositeMLDsaAlgorithmMLDSA44withEd25519": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/HybridCompositeSigner.cs",
+        "lines": [
+          53,
+          72
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCompositeMLDsaAlgorithmMLDSA44withRSA": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/HybridCompositeSigner.cs",
+        "lines": [
+          54
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCompositeMLDsaAlgorithmMLDSA65withECDSA": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/HybridCompositeSigner.cs",
+        "lines": [
+          45
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCompositeMLDsaAlgorithmMLDSA65withRSA": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/HybridCompositeSigner.cs",
+        "lines": [
+          24
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCryptoServiceProviderMD5": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          36
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyCryptoServiceProviderSHA1": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          43
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyDESDES": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          24,
+          68
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyFormatterClassRSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          104,
+          110
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyHashAlgorithmNameSHA1": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          80
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyHmacClassMD5": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          51
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyHmacClassSHA1": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          58
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyKmacClassSHAKE128": [
+      {
+        "fileId": "PqcDotnetDemo/Modern/DigestAndMacServices.cs",
+        "lines": [
+          81
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyMLDsaAlgorithmMLDSA44": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
+        "lines": [
+          29
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyMLDsaAlgorithmMLDSA65": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
+        "lines": [
+          22
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyMLKemAlgorithmMLKEM512": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/MlKemKeyExchange.cs",
+        "lines": [
+          30,
+          46
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyMLKemAlgorithmMLKEM768": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/MlKemKeyExchange.cs",
+        "lines": [
+          22,
+          48,
+          60
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidAES128": [
+      {
+        "fileId": "PqcDotnetDemo/Modern/AesContentCipher.cs",
+        "lines": [
+          74
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidAES192": [
+      {
+        "fileId": "PqcDotnetDemo/Modern/AesContentCipher.cs",
+        "lines": [
+          93
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidDSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          69
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidDiffieHellman": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          80
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidEd25519": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
+        "lines": [
+          86,
+          110
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidEllipticCurve": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
+        "lines": [
+          79,
+          101
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidMD5": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          114
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidMLDSA44": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
+        "lines": [
+          127
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidMLDSA65": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
+        "lines": [
+          116
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidMLKEM768": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/MlKemKeyExchange.cs",
+        "lines": [
+          96
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidRC4": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          95
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidRSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          55,
+          62
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidSHA1": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          121
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidSHA512224": [
+      {
+        "fileId": "PqcDotnetDemo/Modern/DigestAndMacServices.cs",
+        "lines": [
+          179
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidTripleDES": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          88
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyOidX25519": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
+        "lines": [
+          93
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyPaddingRSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          90,
+          97,
+          136,
+          143
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyPbeEncryptionAlgorithmAES128": [
+      {
+        "fileId": "PqcDotnetDemo/Modern/AesContentCipher.cs",
+        "lines": [
+          61
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyPbeEncryptionAlgorithmAES192": [
+      {
+        "fileId": "PqcDotnetDemo/Modern/AesContentCipher.cs",
+        "lines": [
+          64
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyPbeEncryptionAlgorithmTripleDES": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          79
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyPbkdf2DefaultHmacSHA1": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          69
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyPkcs12ExportPbeSHA1": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          109
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyPkcs12ExportPbeTripleDES": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          109
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyPlatformClassRSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          30,
+          37
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyProtocolSSL3": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyTransportPolicy.cs",
+        "lines": [
+          22,
+          69
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyProtocolTLS1": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyTransportPolicy.cs",
+        "lines": [
+          29,
+          69,
+          83
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyProtocolTLS11": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyTransportPolicy.cs",
+        "lines": [
+          60
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyProtocolTLS12": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyTransportPolicy.cs",
+        "lines": [
+          40,
+          76
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyRC2": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          43
+        ]
+      }
+    ],
+    "CsharpUsingCryptographySignatureGeneratorECDSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
+        "lines": [
+          137
+        ]
+      }
+    ],
+    "CsharpUsingCryptographySignatureGeneratorRSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          136
+        ]
+      }
+    ],
+    "CsharpUsingCryptographySlhDsaAlgorithmSLHDSASHA2128": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
+        "lines": [
+          61
+        ]
+      }
+    ],
+    "CsharpUsingCryptographySlhDsaAlgorithmSLHDSASHAKE192": [
+      {
+        "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
+        "lines": [
+          54
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyStringNameDSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          161
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyStringNameMD2": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          107
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyStringNameMD5": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          85,
+          100
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyStringNameRC2": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          119
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyStringNameRSA": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          150
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyStringNameSHA1": [
+      {
+        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
+        "lines": [
+          113,
+          162
+        ]
+      },
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          74,
+          93,
+          135
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyStringNameSHA3224": [
+      {
+        "fileId": "PqcDotnetDemo/Modern/DigestAndMacServices.cs",
+        "lines": [
+          46
+        ]
+      }
+    ],
+    "CsharpUsingCryptographyStringNameTripleDES": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
+        "lines": [
+          49
+        ]
+      }
+    ],
+    "CsharpUsingCryptographySubjectKeyIdentifierSHA1": [
+      {
+        "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
+        "lines": [
+          130
+        ]
+      }
+    ],
+  }
+}
