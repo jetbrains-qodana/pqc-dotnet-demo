@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using PqcDotnetDemo.Classic;
 using PqcDotnetDemo.Legacy;
 using PqcDotnetDemo.Modern;
