@@ -11,3 +11,12 @@ profile:
     #   PqcMinLevel5 – Flag cryptography that should no longer be used. Includes Levels 1–4.
     - group: PqcMinLevel5
       enabled: true
+   
+# these detections would find problems due to the nature of this project being a demo   
+exclude:
+  - name: UsingStatementResourceInitialization
+  - name: CA1850
+  - name: UnusedMethodReturnValue.Global
+  - name: OutParameterValueIsAlwaysDiscarded.Global
+  - name: csharp_crypto_rule-WeakCipherAlgorithm
+  - name: csharp_crypto_rule-WeakHashingFunction
