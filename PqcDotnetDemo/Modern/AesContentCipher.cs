@@ -64,7 +64,7 @@ internal sealed class AesContentCipher
             "business" => new PbeParameters(PbeEncryptionAlgorithm.Aes192Cbc, HashAlgorithmName.SHA384, 100_000),
 
             // AES-256 -- level 5.
-            _ => new PbeParameters(PbeEncryptionAlgorithm.Aes256Cbc, HashAlgorithmName.SHA512, 210_000),
+            _ => new PbeParameters(PbeEncryptionAlgorithm.Aes256Cbc, HashAlgorithmName.SHA512, 210_000)
         };
     }
 

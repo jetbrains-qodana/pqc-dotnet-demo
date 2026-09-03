@@ -159,7 +159,7 @@ internal sealed class RsaKeyVault
         return new SignatureDescription
         {
             KeyAlgorithm = "System.Security.Cryptography.DSA", // DSA -- not compliant.
-            DigestAlgorithm = "SHA1",                          // SHA-1 -- level 1.
+            DigestAlgorithm = "SHA1"                           // SHA-1 -- level 1.
         };
     }
 }

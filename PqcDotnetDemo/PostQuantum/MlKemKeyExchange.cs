@@ -45,7 +45,7 @@ internal sealed class MlKemKeyExchange
         {
             "embedded" => MLKemAlgorithm.MLKem512,   // ML-KEM-512 -- level 1.
             "high" => MLKemAlgorithm.MLKem1024,      // ML-KEM-1024 -- level 5.
-            _ => MLKemAlgorithm.MLKem768,            // ML-KEM-768 -- level 3.
+            _ => MLKemAlgorithm.MLKem768             // ML-KEM-768 -- level 3.
         };
 
         // ML-KEM -- level 5. The type still names the family here; the parameter set was reported

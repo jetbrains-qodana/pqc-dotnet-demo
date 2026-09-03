@@ -37,7 +37,7 @@ internal sealed class LegacyTransportPolicy
             TargetHost = host,
 
             // TLS 1.2 -- not compliant. This is the finding that usually starts the conversation.
-            EnabledSslProtocols = SslProtocols.Tls12,
+            EnabledSslProtocols = SslProtocols.Tls12
         };
     }
 
@@ -49,7 +49,7 @@ internal sealed class LegacyTransportPolicy
             TargetHost = host,
 
             // TLS 1.3 -- compliant, and deliberately not reported.
-            EnabledSslProtocols = SslProtocols.Tls13,
+            EnabledSslProtocols = SslProtocols.Tls13
         };
     }
 
@@ -89,7 +89,7 @@ internal sealed class LegacyTransportPolicy
         return new SslClientAuthenticationOptions
         {
             TargetHost = host,
-            EnabledSslProtocols = SslProtocols.None,
+            EnabledSslProtocols = SslProtocols.None
         };
     }
 }
