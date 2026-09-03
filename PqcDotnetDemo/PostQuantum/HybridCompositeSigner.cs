@@ -14,10 +14,10 @@ namespace PqcDotnetDemo.PostQuantum;
 /// break both halves. Each pairing is one finding naming both components, so an inventory can
 /// tell a deliberate hybrid deployment apart from a service that simply still uses RSA.
 /// </remarks>
-internal sealed class HybridCompositeSigner
+internal static class HybridCompositeSigner
 {
     /// <summary>The transitional document signing key, for auditors still on RSA.</summary>
-    public CompositeMLDsa CreateTransitionalDocumentKey()
+    public static CompositeMLDsa CreateTransitionalDocumentKey()
     {
         // ML-DSA-65 with RSA-3072 -- hybrid, level 3. Reported at the post-quantum component's
         // level, not RSA's.
@@ -25,28 +25,28 @@ internal sealed class HybridCompositeSigner
     }
 
     /// <summary>The transitional handshake key, paired with the ECDSA the peers already verify.</summary>
-    public CompositeMLDsa CreateTransitionalHandshakeKey()
+    public static CompositeMLDsa CreateTransitionalHandshakeKey()
     {
         // ML-DSA-44 with ECDSA-P256 -- hybrid, level 2.
         return CompositeMLDsa.GenerateKey(CompositeMLDsaAlgorithm.MLDsa44WithECDsaP256);
     }
 
     /// <summary>The transitional root, at the strongest pairing available.</summary>
-    public CompositeMLDsa CreateTransitionalRootKey()
+    public static CompositeMLDsa CreateTransitionalRootKey()
     {
         // ML-DSA-87 with Ed448 -- hybrid, level 5.
         return CompositeMLDsa.GenerateKey(CompositeMLDsaAlgorithm.MLDsa87WithEd448);
     }
 
     /// <summary>One customer pins Brainpool curves in its profile.</summary>
-    public CompositeMLDsa CreateBrainpoolPairedKey()
+    public static CompositeMLDsa CreateBrainpoolPairedKey()
     {
         // ML-DSA-65 with ECDSA-BrainpoolP256r1 -- hybrid, level 3.
         return CompositeMLDsa.GenerateKey(CompositeMLDsaAlgorithm.MLDsa65WithECDsaBrainpoolP256r1);
     }
 
     /// <summary>The pairing is read from the tenant profile before the key is generated.</summary>
-    public CompositeMLDsa CreateKeyForProfile(bool preferEdwards)
+    public static CompositeMLDsa CreateKeyForProfile(bool preferEdwards)
     {
         // Both pairings are reported here, where the code names them:
         var pairing = preferEdwards
@@ -57,7 +57,7 @@ internal sealed class HybridCompositeSigner
     }
 
     /// <summary>Loads a peer's composite verification key, pairing named at the call.</summary>
-    public CompositeMLDsa ImportPeerVerificationKey(byte[] encodedKey)
+    public static CompositeMLDsa ImportPeerVerificationKey(byte[] encodedKey)
     {
         // ML-DSA-87 with ECDSA-P521 -- hybrid, level 5.
         return CompositeMLDsa.ImportCompositeMLDsaPublicKey(
@@ -66,14 +66,14 @@ internal sealed class HybridCompositeSigner
     }
 
     /// <summary>Feature probing, which names a pairing without signing with it.</summary>
-    public bool IsTransitionalProfileAvailable()
+    public static bool IsTransitionalProfileAvailable()
     {
         // ML-DSA-44 with Ed25519 -- hybrid, level 2.
         return CompositeMLDsa.IsAlgorithmSupported(CompositeMLDsaAlgorithm.MLDsa44WithEd25519);
     }
 
     /// <summary>Reads a composite key out of a transitional certificate.</summary>
-    public CompositeMLDsa? ReadCertificateKey(X509Certificate2 certificate)
+    public static CompositeMLDsa? ReadCertificateKey(X509Certificate2 certificate)
     {
         // Composite ML-DSA, named by the certificate accessor -- a different rule from the plain
         // ML-DSA accessor, so an inventory can separate hybrid deployments from pure ones.
@@ -81,7 +81,7 @@ internal sealed class HybridCompositeSigner
     }
 
     /// <summary>Issues transitional certificates.</summary>
-    public X509SignatureGenerator CreateIssuingGenerator(CompositeMLDsa caKey)
+    public static X509SignatureGenerator CreateIssuingGenerator(CompositeMLDsa caKey)
     {
         // Composite ML-DSA.
         return X509SignatureGenerator.CreateForCompositeMLDsa(caKey);
@@ -92,7 +92,7 @@ internal sealed class HybridCompositeSigner
     /// with no pairing named there is no level to report -- so the analyzer stays quiet rather
     /// than reporting a hybrid it cannot characterise.
     /// </summary>
-    public CompositeMLDsa ImportPeerKeyFromPem(string pem)
+    public static CompositeMLDsa ImportPeerKeyFromPem(string pem)
     {
         return CompositeMLDsa.ImportFromPem(pem);
     }

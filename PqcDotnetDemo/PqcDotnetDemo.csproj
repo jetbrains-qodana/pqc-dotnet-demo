@@ -20,12 +20,11 @@
           SYSLIB0039                          - TLS 1.0 and 1.1 as SslStream arguments
           SYSLIB0053                          - the single-argument AesGcm constructor
           SYSLIB5006                          - post-quantum APIs still marked experimental
-          CA1416                              - Windows-only CNG types called from portable code
         -->
         <NoWarn>
             $(NoWarn);CS0618;
             SYSLIB0014;SYSLIB0021;SYSLIB0022;SYSLIB0023;SYSLIB0027;SYSLIB0031;SYSLIB0033;
-            SYSLIB0039;SYSLIB0041;SYSLIB0045;SYSLIB0053;SYSLIB0060;SYSLIB5006;CA1416
+            SYSLIB0039;SYSLIB0041;SYSLIB0045;SYSLIB0053;SYSLIB0060;SYSLIB5006
         </NoWarn>
     </PropertyGroup>
 

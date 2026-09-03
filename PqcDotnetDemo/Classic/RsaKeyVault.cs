@@ -1,3 +1,4 @@
+using System.Runtime.Versioning;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
@@ -14,67 +15,70 @@ namespace PqcDotnetDemo.Classic;
 /// CryptoConfig string names. Note that key size never changes the verdict: RSA-4096 is reported
 /// exactly like RSA-1024, because Shor's algorithm does not care.
 /// </remarks>
-internal sealed class RsaKeyVault
+internal static class RsaKeyVault
 {
     /// <summary>The service signing key, generated on first run.</summary>
-    public RSA CreateSigningKey()
+    public static RSA CreateSigningKey()
     {
         // RSA -- not compliant. 4096 bits buys nothing against a quantum adversary.
         return RSA.Create(4096);
     }
 
     /// <summary>On Windows the key lives in the platform key store.</summary>
-    public RSA CreateSigningKeyOnWindows()
+    [SupportedOSPlatform("windows")]
+    public static RSA CreateSigningKeyOnWindows()
     {
         // RSA -- not compliant, named by the platform subclass.
         return new RSACng(3072);
     }
 
     /// <summary>On Linux it lives in an OpenSSL provider.</summary>
-    public RSA CreateSigningKeyOnLinux(RSAParameters parameters)
+    [UnsupportedOSPlatform("windows")]
+    public static RSA CreateSigningKeyOnLinux(RSAParameters parameters)
     {
         // RSA -- not compliant.
         return new RSAOpenSsl(parameters);
     }
 
     /// <summary>The HSM-backed key is addressed by CNG algorithm identifier.</summary>
-    public CngKey OpenHsmKey(string keyName)
+    [SupportedOSPlatform("windows")]
+    public static CngKey OpenHsmKey(string keyName)
     {
         // RSA -- not compliant, named by a CngAlgorithm rather than a type.
         return CngKey.Create(CngAlgorithm.Rsa, keyName);
     }
 
     /// <summary>Two customers still verify with DSA.</summary>
-    public DSA CreateInteropVerificationKey()
+    public static DSA CreateInteropVerificationKey()
     {
         // DSA -- not compliant.
         return DSA.Create(2048);
     }
 
     /// <summary>Certificate requests record their key algorithm as an OID.</summary>
-    public Oid ReadRequestedKeyAlgorithm()
+    public static Oid ReadRequestedKeyAlgorithm()
     {
         // 1.2.840.113549.1.1.1 is rsaEncryption -- not compliant. No RSA type appears here.
         return new Oid("1.2.840.113549.1.1.1");
     }
 
     /// <summary>The PSS variant has its own OID and is the same algorithm underneath.</summary>
-    public Oid ReadRequestedPssAlgorithm()
+    public static Oid ReadRequestedPssAlgorithm()
     {
         // 1.2.840.113549.1.1.10 is RSASSA-PSS -- not compliant.
         return new Oid("1.2.840.113549.1.1.10", "RSASSA-PSS");
     }
 
     /// <summary>The interop profile pins DSA by OID in a constant.</summary>
-    public Oid ReadInteropKeyAlgorithm()
+    public static Oid ReadInteropKeyAlgorithm()
     {
         // The OID reaches the sink through a constant: DSA -- not compliant.
-        const string DsaOid = "1.2.840.10040.4.1";
-        return Oid.FromOidValue(DsaOid, OidGroup.PublicKeyAlgorithm);
+        const string dsaOid = "1.2.840.10040.4.1";
+        return Oid.FromOidValue(dsaOid, OidGroup.PublicKeyAlgorithm);
     }
 
     /// <summary>Some peers still offer finite-field Diffie-Hellman.</summary>
-    public Oid ReadPeerKeyAgreement()
+    public static Oid ReadPeerKeyAgreement()
     {
         // 1.2.840.10046.2.1 is dhpublicnumber: Diffie-Hellman -- not compliant.
         return Oid.FromOidValue("1.2.840.10046.2.1", OidGroup.All);
@@ -84,28 +88,28 @@ internal sealed class RsaKeyVault
     /// Wraps a content key. The RSA key arrives as a parameter, so the padding object is the only
     /// thing in the method that names an algorithm -- and it names two.
     /// </summary>
-    public byte[] WrapContentKey(RSA recipientKey, byte[] contentKey)
+    public static byte[] WrapContentKey(RSA recipientKey, byte[] contentKey)
     {
         // RSA -- not compliant, from the padding; SHA-256 -- level 5, from the OAEP member.
         return recipientKey.Encrypt(contentKey, RSAEncryptionPadding.OaepSHA256);
     }
 
     /// <summary>Signs a document digest. Again the key is a parameter and the padding tells all.</summary>
-    public byte[] SignDocument(RSA signingKey, byte[] document)
+    public static byte[] SignDocument(RSA signingKey, byte[] document)
     {
         // RSA -- not compliant, from the padding; SHA-384 -- level 5.
         return signingKey.SignData(document, HashAlgorithmName.SHA384, RSASignaturePadding.Pss);
     }
 
     /// <summary>The 2009 client wrapped keys through the formatter classes.</summary>
-    public AsymmetricKeyExchangeFormatter CreateLegacyKeyWrapper(RSA recipientKey)
+    public static AsymmetricKeyExchangeFormatter CreateLegacyKeyWrapper(RSA recipientKey)
     {
         // RSA -- not compliant. The formatter names the key it holds.
         return new RSAOAEPKeyExchangeFormatter(recipientKey);
     }
 
     /// <summary>And verified signatures through the deformatters, which name their digest too.</summary>
-    public AsymmetricSignatureDeformatter CreateLegacyVerifier(RSA publicKey)
+    public static AsymmetricSignatureDeformatter CreateLegacyVerifier(RSA publicKey)
     {
         var deformatter = new RSAPKCS1SignatureDeformatter(publicKey); // RSA -- not compliant.
 
@@ -115,36 +119,28 @@ internal sealed class RsaKeyVault
     }
 
     /// <summary>Pulls the signing key out of the service certificate.</summary>
-    public RSA? OpenCertificateSigningKey(X509Certificate2 certificate)
+    public static RSA? OpenCertificateSigningKey(X509Certificate2 certificate)
     {
         // RSA -- not compliant, named by the certificate accessor.
         return certificate.GetRSAPrivateKey();
     }
 
-    /// <summary>Reads a peer's verification key, calling the extension in static form.</summary>
-    public RSA? ReadPeerVerificationKey(X509Certificate2 certificate)
-    {
-        // RSA -- not compliant. Calling the extension statically puts the declaring type where the
-        // receiver would be, and the analyzer matches it there as well.
-        return RSACertificateExtensions.GetRSAPublicKey(certificate);
-    }
-
     /// <summary>Issues a certificate from the service CA.</summary>
-    public X509SignatureGenerator CreateIssuingGenerator(RSA caKey)
+    public static X509SignatureGenerator CreateIssuingGenerator(RSA caKey)
     {
         // RSA -- not compliant, named by the signature generator factory.
         return X509SignatureGenerator.CreateForRSA(caKey, RSASignaturePadding.Pkcs1);
     }
 
     /// <summary>Builds the CSR the CA expects.</summary>
-    public CertificateRequest CreateCertificateRequest(RSA key)
+    public static CertificateRequest CreateCertificateRequest(RSA key)
     {
         // RSA -- not compliant, from the padding; SHA-256 -- level 5.
         return new CertificateRequest("CN=vault.contoso.example", key, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
     }
 
     /// <summary>The plugin host resolves key algorithms from a manifest name.</summary>
-    public AsymmetricAlgorithm? CreatePluginKey()
+    public static AsymmetricAlgorithm? CreatePluginKey()
     {
         // RSA -- not compliant, named as a string.
         return AsymmetricAlgorithm.Create("RSA");
@@ -154,7 +150,7 @@ internal sealed class RsaKeyVault
     /// A legacy signature description names its key algorithm and its digest as CryptoConfig
     /// names, in properties rather than at a call.
     /// </summary>
-    public SignatureDescription DescribeLegacySignature()
+    public static SignatureDescription DescribeLegacySignature()
     {
         return new SignatureDescription
         {
