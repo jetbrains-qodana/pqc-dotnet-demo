@@ -57,7 +57,6 @@ internal static class InventorySweep
         RsaKeyVault.CreateLegacyKeyWrapper(signingKey);
         RsaKeyVault.CreateLegacyVerifier(signingKey);
         RsaKeyVault.CreateIssuingGenerator(signingKey);
-        RsaKeyVault.DescribeLegacySignature();
         RsaKeyVault.OpenCertificateSigningKey(certificate)?.Dispose();
         RsaKeyVault.CreatePluginKey()?.Dispose();
 
@@ -94,8 +93,6 @@ internal static class InventorySweep
         EllipticCurveHandshake.ReadMontgomeryKeyAgreement();
         EllipticCurveHandshake.LoadEdwardsPrivateKey(RandomNumberGenerator.GetBytes(32));
         EllipticCurveHandshake.CreateHandshakeGenerator(signingKey);
-        EllipticCurveHandshake.SelectCurve(useSecp256r1: true);
-        EllipticCurveHandshake.SelectCurve(useSecp256r1: false);
 
         EllipticCurveHandshake.ReadPeerVerificationKey(certificate)?.Dispose();
 
@@ -138,16 +135,13 @@ internal static class InventorySweep
         using var preTwelve = LegacyArchiveCipher.OpenArchiveVolume(volumeYear: 2009);
         using var postTwelve = LegacyArchiveCipher.OpenArchiveVolume(volumeYear: 2015);
         using var attachment = LegacyArchiveCipher.OpenMailAttachment();
-        using var oldClient = LegacyArchiveCipher.OpenVolumeWrittenByTheOldClient();
 
         (LegacyArchiveCipher.OpenVolumeByHeaderName() as IDisposable)?.Dispose();
-        LegacyArchiveCipher.IsUnusableArchiveKey(RandomNumberGenerator.GetBytes(8));
         LegacyArchiveCipher.ManifestEncryptionParameters();
         LegacyArchiveCipher.WrapForLegacyRecipient(Document);
         LegacyArchiveCipher.WrapForAncientRecipient(Document);
         LegacyArchiveCipher.ExportLegacyPfx(certificate, Password);
 
-        // CryptDeriveKey is a CAPI call with no Unix implementation, whatever the cipher.
         Probe($"{nameof(LegacyArchiveCipher)}.{nameof(LegacyArchiveCipher.DeriveVolumeKey)}",
             () => LegacyArchiveCipher.DeriveVolumeKey(Password, Salt));
 
@@ -164,8 +158,6 @@ internal static class InventorySweep
         LegacyDigestService.SignSessionCookie(Key, Document);
         LegacyDigestService.HashPasswordTheOriginalWay(Password, Salt);
         LegacyDigestService.HashPasswordTheOlderWay(Password, Salt);
-        LegacyDigestService.HashPasswordWithConfiguredDigest(Password, Salt);
-        LegacyDigestService.BuildLegacyMaskGenerator();
         LegacyDigestService.ResolveAncientDigestOid();
         LegacyDigestService.ReadSignatureDigest();
         LegacyDigestService.TryReadSignatureDigest(out _);
@@ -185,9 +177,6 @@ internal static class InventorySweep
         LegacyTransportPolicy.MigrationWindowProtocols();
         LegacyTransportPolicy.ApplyProcessWidePolicy();
 
-        // Both handshakes want a peer that will speak a protocol no current OpenSSL build still
-        // enables. Handing them a stream with nothing behind it reaches the call without
-        // pretending it can connect.
         Probe($"{nameof(LegacyTransportPolicy)}.{nameof(LegacyTransportPolicy.ConnectToAncientPeerAsync)}", () =>
         {
             using var inner = new MemoryStream();
@@ -275,7 +264,6 @@ internal static class InventorySweep
         using var imported = MlKemKeyExchange.ImportPeerEncapsulationKey(sessionKey.ExportEncapsulationKey());
         using var fromPem = MlKemKeyExchange.ImportPeerKeyFromPem(sessionKey.ExportSubjectPublicKeyInfoPem());
 
-        MlKemKeyExchange.Encapsulate(sessionKey);
         MlKemKeyExchange.ReadPeerKemAlgorithm();
         MlKemKeyExchange.ReadHighAssuranceKemAlgorithm();
         MlKemKeyExchange.ReadCertificateKey(certificate)?.Dispose();
@@ -327,8 +315,6 @@ internal static class InventorySweep
         using var importedSpki = MlDsaSigner.ImportPeerVerificationKeyFromSpki(documentKey.ExportSubjectPublicKeyInfo());
         using var importedFirmware = MlDsaSigner.ImportFirmwareVerificationKey(bootloaderKey.ExportSubjectPublicKeyInfoPem());
 
-        var signature = MlDsaSigner.SignDocument(documentKey, Document);
-        MlDsaSigner.VerifyDocument(documentKey, Document, signature);
         MlDsaSigner.IsFirmwareSigningAvailable();
         MlDsaSigner.ReadSignatureAlgorithm();
         MlDsaSigner.ReadPreHashSignatureAlgorithm();
@@ -396,7 +382,6 @@ internal static class InventorySweep
         {
             using var peerKey = CompositeMLDsa.GenerateKey(CompositeMLDsaAlgorithm.MLDsa87WithECDsaP521);
             using var imported = HybridCompositeSigner.ImportPeerVerificationKey(peerKey.ExportCompositeMLDsaPublicKey());
-            using var fromPem = HybridCompositeSigner.ImportPeerKeyFromPem(peerKey.ExportSubjectPublicKeyInfoPem());
         });
 
         Done(nameof(HybridCompositeSigner));
