@@ -1,13 +1,13 @@
 {
   "benchmark": "pqc-dotnet-demo",
   "version": "1.0",
-  "_note": "Expected issues were snapshotted from a Qodana scan (QDNET 263.SNAPSHOT) at commit ba0faab71119fa86b09c4b200304edb610e1c94c, one expected sink per reported finding (its primary location).",
+  "_note": "Expected issues were snapshotted from a Qodana scan (QDNET 271.SNAPSHOT) at commit c56c1924d9ed3d07206b7ac0400e629ba836b1d8, one expected sink per reported finding (its primary location).",
   "expectedIssues": {
     "CsharpUsingCryptographyCertificateKeyECDH": [
       {
         "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
         "lines": [
-          135
+          95
         ]
       }
     ],
@@ -15,7 +15,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
         "lines": [
-          125
+          90
         ]
       }
     ],
@@ -23,7 +23,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          125
+          87
         ]
       }
     ],
@@ -31,7 +31,7 @@
       {
         "fileId": "PqcDotnetDemo/Modern/AesContentCipher.cs",
         "lines": [
-          49
+          28
         ]
       }
     ],
@@ -39,7 +39,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          55
+          34
         ]
       }
     ],
@@ -47,8 +47,8 @@
       {
         "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
         "lines": [
-          24,
-          32
+          12,
+          18
         ]
       }
     ],
@@ -56,14 +56,14 @@
       {
         "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
         "lines": [
-          39,
-          47
+          23,
+          29
         ]
       },
       {
         "fileId": "PqcDotnetDemo/Modern/DigestAndMacServices.cs",
         "lines": [
-          152
+          100
         ]
       }
     ],
@@ -71,7 +71,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          20
+          10
         ]
       }
     ],
@@ -79,7 +79,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          24
+          11
         ]
       }
     ],
@@ -87,7 +87,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          28
+          15
         ]
       }
     ],
@@ -95,7 +95,7 @@
       {
         "fileId": "PqcDotnetDemo/Modern/DigestAndMacServices.cs",
         "lines": [
-          54
+          30
         ]
       }
     ],
@@ -103,8 +103,8 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          30,
-          34
+          18,
+          20
         ]
       }
     ],
@@ -112,7 +112,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
         "lines": [
-          63
+          41
         ]
       }
     ],
@@ -120,7 +120,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
         "lines": [
-          55
+          35
         ]
       }
     ],
@@ -128,7 +128,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          48
+          29
         ]
       }
     ],
@@ -136,7 +136,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/HybridCompositeSigner.cs",
         "lines": [
-          31
+          15
         ]
       }
     ],
@@ -144,8 +144,8 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/HybridCompositeSigner.cs",
         "lines": [
-          53,
-          72
+          31,
+          46
         ]
       }
     ],
@@ -153,7 +153,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/HybridCompositeSigner.cs",
         "lines": [
-          54
+          32
         ]
       }
     ],
@@ -161,7 +161,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/HybridCompositeSigner.cs",
         "lines": [
-          45
+          25
         ]
       }
     ],
@@ -169,7 +169,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/HybridCompositeSigner.cs",
         "lines": [
-          24
+          10
         ]
       }
     ],
@@ -177,7 +177,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          36
+          21
         ]
       }
     ],
@@ -185,7 +185,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          43
+          27
         ]
       }
     ],
@@ -193,8 +193,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          22,
-          66
+          11
         ]
       }
     ],
@@ -202,8 +201,8 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          108,
-          114
+          74,
+          79
         ]
       }
     ],
@@ -211,7 +210,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          78
+          38
         ]
       }
     ],
@@ -219,7 +218,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          51
+          33
         ]
       }
     ],
@@ -227,7 +226,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          58
+          38
         ]
       }
     ],
@@ -235,7 +234,7 @@
       {
         "fileId": "PqcDotnetDemo/Modern/DigestAndMacServices.cs",
         "lines": [
-          82
+          51
         ]
       }
     ],
@@ -243,7 +242,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
         "lines": [
-          30
+          16
         ]
       }
     ],
@@ -251,7 +250,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
         "lines": [
-          23
+          11
         ]
       }
     ],
@@ -259,8 +258,8 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/MlKemKeyExchange.cs",
         "lines": [
-          31,
-          47
+          16,
+          28
         ]
       }
     ],
@@ -268,9 +267,9 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/MlKemKeyExchange.cs",
         "lines": [
-          23,
-          49,
-          61
+          11,
+          30,
+          38
         ]
       }
     ],
@@ -278,7 +277,7 @@
       {
         "fileId": "PqcDotnetDemo/Modern/AesContentCipher.cs",
         "lines": [
-          74
+          43
         ]
       }
     ],
@@ -286,7 +285,7 @@
       {
         "fileId": "PqcDotnetDemo/Modern/AesContentCipher.cs",
         "lines": [
-          93
+          57
         ]
       }
     ],
@@ -294,7 +293,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          73
+          49
         ]
       }
     ],
@@ -302,7 +301,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          84
+          56
         ]
       }
     ],
@@ -310,8 +309,8 @@
       {
         "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
         "lines": [
-          91,
-          115
+          61,
+          82
         ]
       }
     ],
@@ -319,8 +318,8 @@
       {
         "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
         "lines": [
-          84,
-          106
+          55,
+          74
         ]
       }
     ],
@@ -328,7 +327,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          114
+          64
         ]
       }
     ],
@@ -336,7 +335,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
         "lines": [
-          132
+          84
         ]
       }
     ],
@@ -344,7 +343,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
         "lines": [
-          121
+          78
         ]
       }
     ],
@@ -352,7 +351,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/MlKemKeyExchange.cs",
         "lines": [
-          101
+          65
         ]
       }
     ],
@@ -360,7 +359,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          93
+          50
         ]
       }
     ],
@@ -368,8 +367,8 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          59,
-          66
+          37,
+          43
         ]
       }
     ],
@@ -377,7 +376,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          121
+          70
         ]
       }
     ],
@@ -385,7 +384,7 @@
       {
         "fileId": "PqcDotnetDemo/Modern/DigestAndMacServices.cs",
         "lines": [
-          181
+          121
         ]
       }
     ],
@@ -393,7 +392,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          86
+          44
         ]
       }
     ],
@@ -401,7 +400,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
         "lines": [
-          98
+          67
         ]
       }
     ],
@@ -409,10 +408,10 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          94,
-          101,
-          132,
-          139
+          64,
+          69,
+          92,
+          97
         ]
       }
     ],
@@ -420,7 +419,7 @@
       {
         "fileId": "PqcDotnetDemo/Modern/AesContentCipher.cs",
         "lines": [
-          61
+          35
         ]
       }
     ],
@@ -428,7 +427,7 @@
       {
         "fileId": "PqcDotnetDemo/Modern/AesContentCipher.cs",
         "lines": [
-          64
+          36
         ]
       }
     ],
@@ -436,7 +435,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          77
+          37
         ]
       }
     ],
@@ -444,7 +443,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          69
+          44
         ]
       }
     ],
@@ -452,7 +451,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          107
+          61
         ]
       }
     ],
@@ -460,7 +459,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          107
+          61
         ]
       }
     ],
@@ -468,8 +467,8 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          32,
-          40
+          17,
+          23
         ]
       }
     ],
@@ -477,8 +476,8 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyTransportPolicy.cs",
         "lines": [
-          22,
-          69
+          11,
+          45
         ]
       }
     ],
@@ -486,9 +485,9 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyTransportPolicy.cs",
         "lines": [
-          29,
-          69,
-          83
+          16,
+          45,
+          55
         ]
       }
     ],
@@ -496,7 +495,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyTransportPolicy.cs",
         "lines": [
-          60
+          39
         ]
       }
     ],
@@ -504,8 +503,8 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyTransportPolicy.cs",
         "lines": [
-          40,
-          76
+          24,
+          50
         ]
       }
     ],
@@ -513,7 +512,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          41
+          25
         ]
       }
     ],
@@ -521,7 +520,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/EllipticCurveHandshake.cs",
         "lines": [
-          142
+          100
         ]
       }
     ],
@@ -529,7 +528,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          132
+          92
         ]
       }
     ],
@@ -537,7 +536,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
         "lines": [
-          62
+          36
         ]
       }
     ],
@@ -545,15 +544,7 @@
       {
         "fileId": "PqcDotnetDemo/PostQuantum/MlDsaSigner.cs",
         "lines": [
-          55
-        ]
-      }
-    ],
-    "CsharpUsingCryptographyStringNameDSA": [
-      {
-        "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
-        "lines": [
-          157
+          31
         ]
       }
     ],
@@ -561,7 +552,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          107
+          58
         ]
       }
     ],
@@ -569,8 +560,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          85,
-          100
+          53
         ]
       }
     ],
@@ -578,7 +568,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          117
+          65
         ]
       }
     ],
@@ -586,7 +576,7 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          146
+          99
         ]
       }
     ],
@@ -594,16 +584,14 @@
       {
         "fileId": "PqcDotnetDemo/Classic/RsaKeyVault.cs",
         "lines": [
-          117,
-          158
+          78
         ]
       },
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          74,
-          93,
-          135
+          47,
+          83
         ]
       }
     ],
@@ -611,7 +599,7 @@
       {
         "fileId": "PqcDotnetDemo/Modern/DigestAndMacServices.cs",
         "lines": [
-          47
+          22
         ]
       }
     ],
@@ -619,7 +607,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyArchiveCipher.cs",
         "lines": [
-          47
+          27
         ]
       }
     ],
@@ -627,7 +615,7 @@
       {
         "fileId": "PqcDotnetDemo/Legacy/LegacyDigestService.cs",
         "lines": [
-          130
+          80
         ]
       }
     ]
