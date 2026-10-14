@@ -43,9 +43,17 @@ profile:
     #   PqcMinLevel3 – Flag standard-strength post-quantum algorithms. Includes PqcMinLevel1–2.
     #   PqcMinLevel4 – Flag high-strength post-quantum algorithms. Includes PqcMinLevel1–3.
     #   PqcMinLevel5 – Flag all algorithms except those providing maximum security. Includes PqcMinLevel1-4
-    - group: PqcMinLevel5
+    
+    # e.g.
+    # - group: PqcMinLevel5
+    #   enabled: true
+
+    # enable every PQC inspection. Also finds compliant algorithms
+    - group: AllPqcInspections
       enabled: true
 ```
+
+See https://www.jetbrains.com/help/qodana/post-quantum-cryptography.html#pqc-inspection-groups
 
 ## Running the analysis
 
