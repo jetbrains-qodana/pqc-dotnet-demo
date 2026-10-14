@@ -9,9 +9,16 @@ profile:
     #   PqcMinLevel3 – Recommend active migration to PQC. Includes Levels 1–2.
     #   PqcMinLevel4 – Flag cryptography nearing the end of its recommended use. Includes Levels 1–3.
     #   PqcMinLevel5 – Flag cryptography that should no longer be used. Includes Levels 1–4.
-    - group: PqcMinLevel5
+    
+    # e.g.
+    # - group: PqcMinLevel5
+    #   enabled: true
+
+    # enable every PQC inspection. Also finds compliant algorithms
+    - group: AllPqcInspections
       enabled: true
-   
+
+
 # these detections would find problems due to the nature of this project being a demo   
 exclude:
   - name: UsingStatementResourceInitialization
