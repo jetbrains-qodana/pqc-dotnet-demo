@@ -14,16 +14,8 @@ profile:
     # - group: PqcMinLevel5
     #   enabled: true
 
-    # enable every PQC inspection. Also finds compliant algorithms
+    # enable every PQC inspection to also find compliant algorithms. Disable all other inspections.
+    - group: ALL
+      enabled: false
     - group: AllPqcInspections
       enabled: true
-
-
-# these detections would find problems due to the nature of this project being a demo   
-exclude:
-  - name: UsingStatementResourceInitialization
-  - name: CA1850
-  - name: UnusedMethodReturnValue.Global
-  - name: OutParameterValueIsAlwaysDiscarded.Global
-  - name: csharp_crypto_rule-WeakCipherAlgorithm
-  - name: csharp_crypto_rule-WeakHashingFunction
